@@ -9,6 +9,7 @@ module EsDumpRestore
 
     def initialize(base_uri, index_name)
       @httpclient = HTTPClient.new
+      @httpclient.set_keep_alive_timeout(30)
       @index_name = index_name
       @base_uri = URI.parse(base_uri + "/" + index_name + "/")
     end
